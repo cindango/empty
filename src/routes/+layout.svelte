@@ -85,7 +85,7 @@
             </div>
             
             <div class="right navbar-right">
-                {#if data.session}
+                {#if data.session && !isDocument}
                     <div class="dropdown" bind:this={dropdown}>
                         <img src="/nav/dots.svg" on:click={toggleDropdown} />
                         
