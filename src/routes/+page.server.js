@@ -4,7 +4,7 @@ export const load = async ({ params, locals: { supabase, getSession } }) => {
   const session = await getSession();
   const { username, document_id } = params;
 
-  let documentCount = 0;
+  let documentCount = null;
 
   if (session) {
     const { data, error: countError } = await supabase

@@ -2,6 +2,7 @@
     import { onMount, tick } from 'svelte';
     import { debounce } from 'lodash';
     import { goto } from '$app/navigation';
+    import { browser } from '$app/environment';
     import { page } from '$app/stores';
     import { pageTitle } from '$lib/store.js';
     import { Auth } from '@supabase/auth-ui-svelte'
@@ -17,22 +18,25 @@
        loading = $page.url.searchParams.get('loading')
     }
 
-    console.log("loading:", loading)
-
-    $: ({ session } = data);
+    $: ({ session, documentCount } = data);
 
     onMount(async () => {
         ready = true;
-
-            if (loading && !data?.session) {
-                location.reload()
-                if (data.documentCount < 1) {
-                    await handleCreateDocument();
+        if (loading) {
+            if (session !== null && documentCount !== null) {
+                if (documentCount < 1) {
+                        handleCreateDocument();
+                } else {
+                    if (browser) {
+                        goto('/index');
+                    }
                 }
             } else {
-                goto('/index');
+                location.reload();
             }
+        }
     });
+
 
     const handleCreateDocument = async () => {
 
@@ -71,7 +75,7 @@
                         supabaseClient={data.supabase}
                         providers={['google']}
                         view="magic_link"
-                        redirectTo={env.VITE_AUTH_REDIRECT_URL}
+                        redirectTo={env.PUBLIC_AUTH_REDIRECT_URL}
                         showLinks={false}
                     />
                 </div>

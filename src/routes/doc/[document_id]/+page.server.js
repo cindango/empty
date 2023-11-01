@@ -67,9 +67,36 @@ export const load = async ({ params, locals: { supabase, getSession } }) => {
         throw redirect(303, '/');
       }
   
+      // Generate a random encryption key (this should be kept secret and only shared with the user)
+      const key = window.crypto.subtle.generateKey(
+        {
+          name: "AES-GCM",
+          length: 256,
+        },
+        true,
+        ["encrypt", "decrypt"]
+      );
+  
+      // Encrypt the content
+      const encoder = new TextEncoder();
+      const contentBuffer = encoder.encode(content);
+      const iv = window.crypto.getRandomValues(new Uint8Array(12));
+      const encryptedContentBuffer = await window.crypto.subtle.encrypt(
+        {
+          name: "AES-GCM",
+          iv: iv,
+        },
+        key,
+        contentBuffer
+      );
+  
+      // Convert the encrypted content to a base64 string
+      const encryptedContent = btoa(String.fromCharCode(...new Uint8Array(encryptedContentBuffer)));
+  
+      // Update the document in the database with the encrypted content
       const { data: updatedDocument, error } = await supabase
         .from('documents')
-        .update({ content })
+        .update({ content: encryptedContent, iv: btoa(String.fromCharCode(...iv)) })
         .eq('document_id', documentId)
         .eq('user_id', session.user.id)
         .single();

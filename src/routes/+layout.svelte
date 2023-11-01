@@ -3,7 +3,7 @@
 	import '../styles.css'
     import '@fontsource/epilogue';
     import { page } from '$app/stores';
-	import { invalidate } from '$app/navigation'
+	import { goto, invalidate } from '$app/navigation'
 	import { onMount, onDestroy } from 'svelte'
     import { enhance } from '$app/forms';
     import { pageTitle } from '$lib/store.js';
@@ -14,11 +14,20 @@
     let y = 0;
     let dim = false;
     let scroll = false;
+    let isDocument = false;
+
+    $: {
+        if ($page.route.id === "/doc/[document_id]") {
+            isDocument = true;
+        } else {
+            isDocument = false;
+        }
+    }
 
 	$: ({ supabase, session } = data)
 
     $: scroll = y > 100;
-    $: if (scroll && $page.route.id === "/doc/[document_id]") {
+    $: if (scroll && isDocument) {
         dim = true;
     } else {
         dim = false;
@@ -53,7 +62,7 @@
         toggleDropdown();
         return async ({ update }) => {
             update()
-            location.reload();
+            goto('/');
         }
     }
 </script>
@@ -68,7 +77,7 @@
     {#if session}
         <nav>
             <div class="left navbar-left">
-                <a href="/index"><img src="/nav/e.svg" /></a>
+                {#if !isDocument}<a href="/index"><img src="/nav/e.svg" /></a>{:else}<a href="/index"><img src="/nav/back.svg" /></a>{/if}
             </div>
 
             <div class="center" class:dim={dim}>
@@ -124,6 +133,7 @@
     }
     .left, .right {
         flex: 0 0 25%; /* 0 0 means the item won't grow or shrink, and 25% sets the basis */
+        align-items: center;
     }
     .left {
         display: flex;
