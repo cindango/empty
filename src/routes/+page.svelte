@@ -23,16 +23,14 @@
     onMount(async () => {
         ready = true;
 
-            if (loading) {
-                if (data?.session && data.documentCount < 1) {
+            if (loading && !data?.session) {
+                location.reload()
+            } else {
+                if (data.documentCount < 1) {
                     await handleCreateDocument();
                 } else {
-                    location.reload()
+                    goto('/index');
                 }
-                console.log("i'm loading")
-                //await handleCreateDocument();
-            } else {
-                
             }
     });
 

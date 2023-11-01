@@ -53,7 +53,7 @@
         toggleDropdown();
         return async ({ update }) => {
             update()
-            window.location.href = window.location.origin;
+            location.reload();
         }
     }
 </script>
