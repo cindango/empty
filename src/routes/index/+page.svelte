@@ -1,11 +1,12 @@
 <script>
     import { onMount, tick } from 'svelte';
-    import { debounce } from 'lodash';
     import { pageTitle } from '$lib/store.js';
     import dayjs from 'dayjs';
 	import utc from 'dayjs/plugin/utc';
     import relativeTime from 'dayjs/plugin/relativeTime';
 	import timezone from 'dayjs/plugin/timezone';
+    import lodash from 'lodash';
+    const { debounce } = lodash;
 	dayjs.extend(utc);
 	dayjs.extend(timezone);
     dayjs.tz.setDefault("America/New_York");

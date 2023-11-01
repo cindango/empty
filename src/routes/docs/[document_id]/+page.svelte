@@ -1,7 +1,8 @@
 <script>
     import { enhance } from '$app/forms';
     import Tiptap from '$lib/Tiptap.svelte';
-    import { debounce } from 'lodash-es';
+    import lodash from 'lodash';
+    const { debounce } = lodash;
 
     export let data;
 
