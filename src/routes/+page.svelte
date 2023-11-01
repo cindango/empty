@@ -5,7 +5,8 @@
     import { page } from '$app/stores';
     import { pageTitle } from '$lib/store.js';
     import { Auth } from '@supabase/auth-ui-svelte'
-    import { ThemeSupa } from '@supabase/auth-ui-shared'
+    import { env } from '$env/dynamic/public'
+
     pageTitle.set("");
 
     export let data;
@@ -25,12 +26,11 @@
 
             if (loading && !data?.session) {
                 location.reload()
-            } else {
                 if (data.documentCount < 1) {
                     await handleCreateDocument();
-                } else {
-                    goto('/index');
                 }
+            } else {
+                goto('/index');
             }
     });
 
@@ -71,7 +71,7 @@
                         supabaseClient={data.supabase}
                         providers={['google']}
                         view="magic_link"
-                        redirectTo={'http://localhost:5173?loading=true'}
+                        redirectTo={env.AUTH_REDIRECT_URL}
                         showLinks={false}
                     />
                 </div>
