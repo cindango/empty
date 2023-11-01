@@ -71,7 +71,7 @@
                         supabaseClient={data.supabase}
                         providers={['google']}
                         view="magic_link"
-                        redirectTo={env.AUTH_REDIRECT_URL}
+                        redirectTo={env.VITE_AUTH_REDIRECT_URL}
                         showLinks={false}
                     />
                 </div>
