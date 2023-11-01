@@ -34,6 +34,8 @@
             } else {
                 location.reload();
             }
+        } else {
+            goto('/index');
         }
     });
 
