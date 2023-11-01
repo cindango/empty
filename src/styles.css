@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+	--custom-font-family: 'Signifier', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+		Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	--custom-bg-color: #1B1A19;
+	--custom-panel-color: #222;
+	--custom-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.8);
+	--custom-color: #fff;
+	--custom-color-brand: #24b47e;
+	--custom-color-secondary: #666;
+	--custom-border: 1px solid #333;
+	--custom-border-radius: 4px;
+	--custom-spacing: 5px;
+	--dropdown-bg: #333;
+
+	padding: 0;
+	margin: 0;
+	font-family: var(--custom-font-family);
+	background-color: var(--custom-bg-color);
+}
+
+* {
+	color: var(--custom-color);
+	font-family: var(--custom-font-family);
+	box-sizing: border-box;
+}
+
+html,
+body,
+#__next {
+}
+
+body {
+    min-height: 100vh;
+}
+
+
+/* Grid */
+
+.container {
+	padding: 45px 2rem 100px;
+	margin: 0 auto;
+}
+
+@media only screen and (min-width: 60em) {
+	/* 960px */
+	.container {
+	}
+}
+
+/* Forms */
+
+label {
+	display: block;
+	margin: 5px 0;
+	color: var(--custom-color-secondary);
+	font-size: 0.8rem;
+	text-transform: uppercase;
+}
+
+input {
+	width: 100%;
+	border-radius: 5px;
+	border: 0;
+	padding: 8px;
+	font-size: 1.5rem;
+	background-color: var(--custom-bg-color);
+	color: var(--custom-color);
+	outline: 0;
+}
+
+input[disabled] {
+	color: var(--custom-color-secondary);
+}
+
+
+/* Button */
+
+button,
+.button,
+select {
+	color: white;
+	border: var(--custom-border);
+	background-color: transparent;
+	display: inline-block;
+	text-align: center;
+	border-radius: var(--custom-border-radius);
+	padding: 0.5rem 1rem;
+	cursor: pointer;
+	text-align: center;
+	font-size: 1rem;
+	font-weight: bold;
+}
+
+button.primary,
+.button.primary {
+	background-color: var(--custom-color-brand);
+	border: 1px solid var(--custom-color-brand);
+}
+
+::selection {
+    background-color: gray;
+  }
+
+::-moz-selection {
+    background-color: gray;
+}
+
+::-webkit-selection {
+    background-color: gray;
+}
+
+
+@media only screen and (min-width: 60em) {
+	/* 960px */
+
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}

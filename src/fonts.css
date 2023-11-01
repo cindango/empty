@@ -1,0 +1,115 @@
+@font-face {
+    font-family: 'Slack Light';
+    src: url('/fonts/Slack-Light.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'S-Mono';
+    src: url('/fonts/SuisseIntlMono-Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'S-Mono';
+    src: url('/fonts/SuisseIntlMono-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'S-Mono';
+    src: url('/fonts/SuisseIntlMono-Thin.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Signifier';
+    src: url('/fonts/Signifier-Regular.otf') format('opentype');
+    font-weight: 400; /* Regular weight */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Signifier';
+    src: url('/fonts/Signifier-RegularItalic.otf') format('opentype');
+    font-weight: 400; /* Regular weight */
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Signifier';
+    src: url('/fonts/Signifier-Light.otf') format('opentype');
+    font-weight: 300; /* Light weight */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Signifier';
+    src: url('/fonts/Signifier-LightItalic.otf') format('opentype');
+    font-weight: 300; /* Light weight */
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Signifier';
+    src: url('/fonts/Signifier-Medium.otf') format('opentype');
+    font-weight: 500; /* Medium weight */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Signifier';
+    src: url('/fonts/Signifier-MediumItalic.otf') format('opentype');
+    font-weight: 500; /* Medium weight */
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Signifier';
+    src: url('/fonts/Signifier-Bold.otf') format('opentype');
+    font-weight: 700; /* Bold weight */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Signifier';
+    src: url('/fonts/Signifier-BoldItalic.otf') format('opentype');
+    font-weight: 700; /* Bold weight */
+    font-style: italic;
+}
+
+/* Stanley Regular */
+@font-face {
+    font-family: 'Stanley';
+    src: url('/fonts/Stanley-Regular-Trial.otf') format('opentype');
+    font-weight: 400; /* Regular weight */
+    font-style: normal;
+}
+
+/* Stanley Italic */
+@font-face {
+    font-family: 'Stanley';
+    src: url('/fonts/Stanley-Italic-Trial.otf') format('opentype');
+    font-weight: 400; /* Regular weight */
+    font-style: italic;
+}
+
+/* Stanley Bold */
+@font-face {
+    font-family: 'Stanley';
+    src: url('/fonts/Stanley-Bold-Trial.otf') format('opentype');
+    font-weight: 700; /* Bold weight */
+    font-style: normal;
+}
+
+/* Stanley Bold Italic */
+@font-face {
+    font-family: 'Stanley';
+    src: url('/fonts/Stanley-Bold-Italic-Trial.otf') format('opentype');
+    font-weight: 700; /* Bold weight */
+    font-style: italic;
+}
+
