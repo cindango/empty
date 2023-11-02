@@ -78,12 +78,11 @@
       <button on:click={() => editor.chain().focus().setParagraph().run()} class:active={editor.isActive('paragraph')}>
         P
       </button>
-      <select bind:value={selectedFontFamily} on:change={handleFontFamilyChange}>
+      <!--<select bind:value={selectedFontFamily} on:change={handleFontFamilyChange}>
           <option value="sans-serif">Sans-serif</option>
           <option value="Signifier">Signifier</option>
           <option value="Epilogue">Epilogue</option>
-          <!-- add more font options as needed -->
-      </select>
+      </select>-->
     </div>
   {/if}
   
@@ -106,6 +105,8 @@
     background: transparent;
     border: 0;
     color: #fff;
+    font-family: 'S-Mono';
+    font-size: .9rem;
   }
   button.active {
     background: black;

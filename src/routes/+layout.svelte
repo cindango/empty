@@ -132,6 +132,9 @@
     nav > div {
         height: 48px;
     }
+    nav a {
+        height: 50px;
+    }
     .left, .right {
         flex: 0 0 25%; /* 0 0 means the item won't grow or shrink, and 25% sets the basis */
         align-items: center;
