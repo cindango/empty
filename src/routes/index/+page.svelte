@@ -284,8 +284,12 @@
         background-color: transparent;
         border: 0;
     }
+    .utils .dropdown[open] img {
+        background-color: rgba(0,0,0,.5);
+    }
     .utils .dropdown-content {
         background-color: var(--dropdown-bg);
+        top: 80%;
     }
     .utils .dropdown-content li a {
         font-family: 'S-Mono';
