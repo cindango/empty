@@ -53,10 +53,11 @@
     }
 
     function handleWindowClick(event) {
-        if (!document.querySelector('.dropdown').contains(event.target)) {
+        if (showDropdown && !document.querySelector('.dropdown').contains(event.target)) {
             showDropdown = false;
         }
     }
+
 
     const handleSignOut = () => {
         toggleDropdown();
