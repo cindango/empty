@@ -153,15 +153,24 @@
 
         {:else if searchText && searchResults.length > 0}
             {#each searchResults as result}
-                <a class="doc" href="/doc/{result.document_id}">
-                    <div class="document">
-                    <h2 class:empty={!result.title && !result.content}>{result.title ? result.title : 'Untitled'}</h2>
-                    <smalltext class="last-updated">{dayjs(result.updated_at).fromNow()}</smalltext>
+                <div class="document">
+                    <a class="doc" href="/doc/{result.document_id}">
+                        <h2 class:empty={!result.title && !result.content}>{result.title ? result.title : 'Untitled'}</h2>
+                        <smalltext class="last-updated">{dayjs(result.updated_at).fromNow()}</smalltext>
+                    </a>
+                
+                    <div class="utils">
+                        <details class="dropdown dropdown-end" use:dropdown>
+                            <summary class="btn"><img src="/nav/dots.svg" /></summary>
+                            <ul class="p-2 shadow menu dropdown-content z-[1] w-52">
+                            <li><a on:click={() => handleDeleteDocument(result.document_id)}>Delete</a></li>
+                            </ul>
+                        </details>
                     </div>
-                </a>
+                </div>
             {/each}
         {:else if searchText}
-            <p>Sorry, try another search :(</p>
+            <p class="no-results">Sorry, try another search :(</p>
         {:else}
             {#each data.documents as doc}
                 <div class="document">
@@ -216,9 +225,14 @@
         font-family: 'S-Mono';
         padding: 20px 8px 16px;
     }
+    .no-results {
+        text-align: center;
+        padding: 2rem;
+        font-family: 'S-Mono', monospace;
+    }
     .new button {
         font-weight: bold;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         background-color: white;
         color: black;
         width: 120px;
@@ -242,12 +256,15 @@
         padding: 1.5rem 1rem;
         flex: 1;
         display: flex;
-        align-items: center;
         justify-content: space-between;
+        align-items: left;
+        flex-direction: column;
+        gap: 5px;
+        color: white;
     }
     .doc h2 {
         font-weight: normal;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         margin: 0;
     }
     .doc h2.empty {
@@ -275,7 +292,8 @@
     }
     .doc .last-updated {
         font-family: 'S-Mono', monospace;
-        font-size: .9rem;
+        font-size: .8rem;
+        opacity: .5;
     }
     .spinner {
         border: 4px solid rgba(255, 255, 255, 0.1);
@@ -290,5 +308,23 @@
     @keyframes spin {
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
+    }
+
+    @media (min-width: 640px) {
+        .new button {
+            font-size: 1.5rem;
+        }
+        .doc {
+            flex-direction: row;
+            align-items: center;
+            gap: 0;
+        }
+        .doc h2 {
+            font-size: 1.5rem;
+        }
+        .doc .last-updated {
+            font-size: .9rem;
+            opacity: 1;
+        }
     }
   </style>

@@ -107,7 +107,7 @@
         margin-top: 4rem;
     }
     #title {
-        font-size: 3.5rem;
+        font-size: 2.5rem;
         outline: none;
         border: none;
         overflow: hidden;
@@ -116,5 +116,10 @@
         background-color: transparent;
         line-height: 100%;
         margin-bottom: 1rem;
+    }
+    @media (min-width: 640px) {
+        #title {
+            font-size: 3.5rem;
+        }
     }
   </style>

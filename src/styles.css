@@ -45,13 +45,15 @@ body {
 /* Grid */
 
 .container {
-	padding: 45px 2rem 100px;
+	padding: 45px 1rem 100px;
 	margin: 0 auto;
 }
 
 @media only screen and (min-width: 60em) {
 	/* 960px */
 	.container {
+		padding: 45px 2rem 100px;
+		margin: 0 auto;
 	}
 }
 
@@ -121,6 +123,18 @@ button.primary,
 @media only screen and (min-width: 60em) {
 	/* 960px */
 
+}
+
+@media (min-width: 768px) {
+	.container {
+		max-width: 100%;
+	}
+}
+
+@media (min-width: 640px) {
+	.container {
+		max-width: 100%;
+	}
 }
 
 @keyframes spin {
