@@ -130,7 +130,7 @@
         height: 50px;
     }
     nav > div {
-        height: 48px;
+        height: 50px;
     }
     nav a {
         height: 50px;
@@ -162,6 +162,7 @@
     }
     .dropdown {
         position: relative;
+        height: 50px;
     }
     .dropdown img {
         cursor: pointer;
