@@ -198,6 +198,7 @@
     }
     .dropdown-menu li hr {
         border-color: rgba(0,0,0,.5);
+        margin: 0;
     }
     .dropdown-menu button {
         background-color: transparent;
