@@ -70,7 +70,7 @@
             {#if !loading && !session}
                 <img style="width: 120px;" src="/ep_logo_w.svg" />
 
-                <h1>Write something.</h1>
+                <h1 class="splash">Write something.</h1>
 
                 <div id="auth">
                     <Auth
@@ -108,7 +108,7 @@
         font-size: 1.15rem;
     }
     h1 {
-        font-size: 8rem;
+        font-size: 4rem;
         font-weight: 400;
         font-family: 'Slack Light';
         text-align: center;
@@ -145,5 +145,15 @@
     @keyframes spin {
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
+    }
+    @media (min-width: 1024px) {
+        h1 {
+            font-size: 8rem;
+        }
+    }
+    @media (min-width: 768) {
+        h1 {
+            font-size: 6rem;
+        }
     }
 </style>

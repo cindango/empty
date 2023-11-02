@@ -40,17 +40,17 @@
 
     onMount(() => {
         function handleClickOutside(event) {
-        dropdowns.forEach(dropdown => {
-            if (!dropdown.contains(event.target)) {
-            dropdown.removeAttribute('open');
-            }
-        });
+            dropdowns.forEach(dropdown => {
+                if (!dropdown.contains(event.target)) {
+                dropdown.removeAttribute('open');
+                }
+            });
         }
 
         window.addEventListener('click', handleClickOutside);
 
         return () => {
-        window.removeEventListener('click', handleClickOutside);
+            window.removeEventListener('click', handleClickOutside);
         };
     });
 
@@ -186,7 +186,7 @@
   
   <style>
     main {
-        width: 64rem;
+        max-width: 64rem;
         margin: 0 auto;
     }
     #header {
