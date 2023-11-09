@@ -68,7 +68,7 @@
     <div id="header">
         {#if ready}
             {#if !loading && !session}
-                <img style="width: 120px;" src="/ep_logo_w.svg" />
+                <img style="width: 120px;" src="/empty_typing.gif" />
 
                 <h1 class="splash">Write something.</h1>
 
@@ -95,7 +95,7 @@
         justify-content: space-between;
         flex-direction: column;
         margin-bottom: 0;
-        padding: 5rem 0;
+        padding: 3rem 0;
         position: absolute;
         left: 0;
         top: 0;
